@@ -28,28 +28,29 @@ class Roster{
             return *ss;
         }
 
+        
+
+    public:
         void printSingleStudent(int i){
             const std::string enum_string[3] = {"Security", "Network", "Software"};
             std::string dp;
 
             if(classRosterVector[i].getDegreeProgram() == SECURITY){
-                    dp = enum_string[0];
-                    i++;}
+                    dp = enum_string[0];}
                 else if(classRosterVector[i].getDegreeProgram() == NETWORK){
-                    dp = enum_string[1];
-                    i++;}
+                    dp = enum_string[1];}
                 else if(classRosterVector[i].getDegreeProgram() == SOFTWARE){
-                    dp = enum_string[2];
-                    i++;}
+                    dp = enum_string[2];}
             std::cout << classRosterVector[i].getStudentId() << "\tFirst Name: " << classRosterVector[i].getFirstName() << "\tLast Name: " <<
             classRosterVector[i].getLastName() << "\tAge: " << classRosterVector[i].getAge() << "\tdatsInCourse: " << classRosterVector[i].getDaysInCourse()  << "\tDegree Program: " <<
             dp << '\n';
         }
 
-    public:
+
         void initStudentObjs(){
             populateClassRoasterArray();
             for(int i = 0; i < 5; i++){
+                std::cout << "\nclassRosterArray is on number: " << i << " Class roster array data: " << *classRosterArray[i];
                 std::string ss;
                 ss = createSubstring(*classRosterArray[i]);
 
@@ -59,6 +60,7 @@ class Roster{
 
                 Student studentObj(&ss[0], &ss[1], &ss[2], &ss[3], ss[4], daysInClass, dt);
                 classRosterVector.push_back(studentObj);}
+                std::cout << "\n";
         }
 
         DegreeProgram convertToDegreeType(std::string degreeString){

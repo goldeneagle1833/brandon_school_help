@@ -13,7 +13,7 @@ int main(){
     int i = 0;
     while(true){
         std::cout << "What would you like to do?\n" <<
-                    "1. Print all\n" << "2. Print Email\n" << "3. Print by degree\n" << "0. Exit\n";
+                    "1. Print all\n" << "2. Print Email\n" << "3. Print by degree\n" << "4. Print studentData\n" << "0. Exit\n";
 
         std::cin >> i;
         switch(i){
@@ -28,14 +28,17 @@ int main(){
                 std::cin >> in;
                 classRoster.printByDegreeProgram(classRoster.convertToDegreeType(in));
                 break;
-            /*
+            
             case 4:
-                //
+                std::cout << *&studentData[0] << "\n";
+                std::cout << *&studentData[1] << "\n";
+                std::cout << *&studentData[2] << "\n";
+                std::cout << *&studentData[3] << "\n";
+                std::cout << *&studentData[4] << "\n";
                 break;
             case 5:
-                //
+                classRoster.printSingleStudent(4);
                 break;
-            */
             case 0:
                 return 0;
         }
