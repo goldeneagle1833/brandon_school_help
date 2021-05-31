@@ -41,7 +41,6 @@ public:
     {
         const std::string enum_string[3] = {"Security", "Network", "Software"};
         std::string dp;
-
         if (classRosterVector[i].getDegreeProgram() == SECURITY)
         {
             dp = enum_string[0];
@@ -68,7 +67,8 @@ public:
             int daysInClass[3] = {stoi(ss[5]), stoi(ss[6]), stoi(ss[7])};
             DegreeProgram dt = convertToDegreeType(ss[8]);
             // Student(std::string sId, std::string fn, std::string ln, std::string em, int a, int *dc[3], DegreeProgram dp)
-            Student studentObj(0, ss[1], ss[2], ss[3], age, daysInClass, dt);
+            Student studentObj(ss[0], ss[1], ss[2], ss[3], age, daysInClass, dt);
+
             classRosterVector.push_back(studentObj);
         }
     }
