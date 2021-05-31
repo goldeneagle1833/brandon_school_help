@@ -40,13 +40,13 @@ class Student{
         DegreeProgram getDegreeProgram(){return degree;}
 
         // Constructor
-        Student(std::string sId, std::string fn, std::string ln, std::string em, int a, int *dc[3], DegreeProgram dp){
+        Student(std::string sId, std::string fn, std::string ln, std::string em, int a, int dc[3], DegreeProgram dp){
             setStudentId(sId);
             setFirstName(fn);
             setLastName(ln);
             setEmail(em);
             setAge(a);
-            setDaysInCourse(*dc);
+            setDaysInCourse(dc);
             setDegreeProgram(dp);
         }
 

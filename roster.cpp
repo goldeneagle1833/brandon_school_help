@@ -17,8 +17,8 @@ class Roster{
             classRosterArray[i] = &studentData[i];}
         }
 
-        std::string createSubstring(std::string tempRosterArray){
-            std::string ss[9];
+        std::string *createSubstring(std::string tempRosterArray){
+            static std::string ss[9];
             std::string curWord;
             int i = 0;
             std::istringstream streamString(tempRosterArray);
@@ -26,16 +26,7 @@ class Roster{
                 ss[i] = curWord;
                 i++;
             }
-            std::cout << "\nss[0] is: " << ss[0] << "\t";
-            std::cout << "\nss[1] is: " << ss[1] << "\t";
-            std::cout << "\nss[2] is: " << ss[2] << "\t";
-            std::cout << "\nss[3] is: " << ss[3] << "\t";
-            std::cout << "\nss[4] is: " << ss[4] << "\t";
-            std::cout << "\nss[5] is: " << ss[5] << "\t";
-            std::cout << "\nss[6] is: " << ss[6] << "\t";
-            std::cout << "\nss[7] is: " << ss[7] << "\t";
-            std::cout << "\nss[8] is: " << ss[8] << "\n";
-            return *ss;
+            return ss;
         }
 
     public:
@@ -58,20 +49,10 @@ class Roster{
         void initStudentObjs(){
             populateClassRoasterArray();
             for(int i = 0; i < 5; i++){
-                std::string ss[9];
-                ss[i] = createSubstring(*classRosterArray[i]);
-                std::cout << "\nss[0] is: " << ss[0] << "\t";
-                std::cout << "\nss[1] is: " << ss[1] << "\t";
-                std::cout << "\nss[2] is: " << ss[2] << "\t";
-                std::cout << "\nss[3] is: " << ss[3] << "\t";
-                std::cout << "\nss[4] is: " << ss[4] << "\t";
-                std::cout << "\nss[5] is: " << ss[5] << "\t";
-                std::cout << "\nss[6] is: " << ss[6] << "\t";
-                std::cout << "\nss[7] is: " << ss[7] << "\t";
-                std::cout << "\nss[8] is: " << ss[8] << "\n";
-                int age = 99;
-                int daysInClassTemp[3] = {1, 2, 3};
-                int *daysInClass[3] = {&daysInClassTemp[0], &daysInClassTemp[1], &daysInClassTemp[2]};
+                std::string *ss;
+                ss = createSubstring(*classRosterArray[i]);
+                int age = stoi(ss[4]);
+                int daysInClass[3] = {stoi(ss[5]), stoi(ss[6]), stoi(ss[7])};
                 DegreeProgram dt = convertToDegreeType(ss[8]);
                 // Student(std::string sId, std::string fn, std::string ln, std::string em, int a, int *dc[3], DegreeProgram dp)
                 Student studentObj(ss[0], ss[1], ss[2], ss[3], age, daysInClass, dt);
@@ -86,7 +67,7 @@ class Roster{
         }
 
         void add(std::string studentID, std::string firstName, std::string lastName, std::string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, DegreeProgram degreeprogram){
-            int *daysInClassTemp[3] = {&daysInCourse1, &daysInCourse2, &daysInCourse3};
+            int daysInClassTemp[3] = {daysInCourse1, daysInCourse2, daysInCourse3};
             Student studentObj(studentID, firstName, lastName, emailAddress, age, daysInClassTemp, degreeprogram);
             classRosterVector.push_back(studentObj);
         }
