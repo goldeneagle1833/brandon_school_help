@@ -19,16 +19,16 @@ class Roster{
 
         std::string createSubstring(std::string tempRosterArray){
             std::string ss[9];
+            std::string curWord;
             int i = 0;
-            std::stringstream tempString(tempRosterArray);
-            while(tempString.good() && i < 9){
-                tempString >> ss[i];
+            std::istringstream streamString(tempRosterArray);
+            while(std::getline(streamString, curWord, ',')){
+                ss[i] = curWord;
+                std::cout << ss[i] << '\n';
                 i++;
             }
             return *ss;
         }
-
-        
 
     public:
         void printSingleStudent(int i){
@@ -50,7 +50,6 @@ class Roster{
         void initStudentObjs(){
             populateClassRoasterArray();
             for(int i = 0; i < 5; i++){
-                std::cout << "\nclassRosterArray is on number: " << i << " Class roster array data: " << *classRosterArray[i];
                 std::string ss;
                 ss = createSubstring(*classRosterArray[i]);
 
@@ -60,7 +59,6 @@ class Roster{
 
                 Student studentObj(&ss[0], &ss[1], &ss[2], &ss[3], ss[4], daysInClass, dt);
                 classRosterVector.push_back(studentObj);}
-                std::cout << "\n";
         }
 
         DegreeProgram convertToDegreeType(std::string degreeString){
