@@ -26,6 +26,15 @@ class Roster{
                 ss[i] = curWord;
                 i++;
             }
+            std::cout << "\nss[0] is: " << ss[0] << "\t";
+            std::cout << "\nss[1] is: " << ss[1] << "\t";
+            std::cout << "\nss[2] is: " << ss[2] << "\t";
+            std::cout << "\nss[3] is: " << ss[3] << "\t";
+            std::cout << "\nss[4] is: " << ss[4] << "\t";
+            std::cout << "\nss[5] is: " << ss[5] << "\t";
+            std::cout << "\nss[6] is: " << ss[6] << "\t";
+            std::cout << "\nss[7] is: " << ss[7] << "\t";
+            std::cout << "\nss[8] is: " << ss[8] << "\n";
             return *ss;
         }
 
@@ -52,14 +61,14 @@ class Roster{
                 std::string ss[9];
                 ss[i] = createSubstring(*classRosterArray[i]);
                 std::cout << "\nss[0] is: " << ss[0] << "\t";
-                std::cout << "\nss[1] is: " <<  ss[1] << "\t";
-                std::cout << "\nss[2] is: " <<  ss[2] << "\t";
-                std::cout << "\nss[3] is: " <<  ss[3] << "\t";
-                std::cout << "\nss[4] is: " <<  ss[4] << "\t";
-                std::cout << "\nss[5] is: " <<  ss[5] << "\t";
-                std::cout << "\nss[6] is: " <<  ss[6] << "\t";
-                std::cout << "\nss[7] is: " <<  ss[7] << "\t";
-                std::cout << "\nss[8] is: " <<  ss[8] << "\n";
+                std::cout << "\nss[1] is: " << ss[1] << "\t";
+                std::cout << "\nss[2] is: " << ss[2] << "\t";
+                std::cout << "\nss[3] is: " << ss[3] << "\t";
+                std::cout << "\nss[4] is: " << ss[4] << "\t";
+                std::cout << "\nss[5] is: " << ss[5] << "\t";
+                std::cout << "\nss[6] is: " << ss[6] << "\t";
+                std::cout << "\nss[7] is: " << ss[7] << "\t";
+                std::cout << "\nss[8] is: " << ss[8] << "\n";
                 int age = 99;
                 int daysInClassTemp[3] = {1, 2, 3};
                 int *daysInClass[3] = {&daysInClassTemp[0], &daysInClassTemp[1], &daysInClassTemp[2]};
