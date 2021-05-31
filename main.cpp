@@ -3,50 +3,30 @@
 #include "roster.cpp"
 
 int main(){
-    std::cout << "Scripting and Programming- Applications– C867, C++, #001459799, Brandon M Burky";
-
-    Roster classRoster;
-    classRoster.initStudentObjs();
-
-    //Runtime Test Code:
-    std::string in;
-    int i = 0;
-    while(true){
-        std::cout << "What would you like to do?\n" <<
-                    "1. Print all\n" << "2. Print Email\n" << "3. Print by degree\n" << "4. Print studentData\n" << "5. Print Average days in course by ID\n" << "0. Exit\n";
-
-        std::cin >> i;
-        switch(i){
-            case 1:
-                classRoster.printAll();
-                break;
-            case 2:
-                classRoster.printInvalidEmails();
-                break;
-            case 3:
-                std::cout << "What degree type?\n";
-                std::cin >> in;
-                classRoster.printByDegreeProgram(in);
-                break;
-            
-            case 4:
-                std::cout << *&studentData[0] << "\n";
-                std::cout << *&studentData[1] << "\n";
-                std::cout << *&studentData[2] << "\n";
-                std::cout << *&studentData[3] << "\n";
-                std::cout << *&studentData[4] << "\n";
-                break;
-            case 5:
-                std::cout << "What Student ID?\n";
-                std::cin >> in;
-                classRoster.printAverageDaysInCourse(in);
-                break;
-            case 0:
-                return 0;
-        }
-
+    // F.1
+    std::cout << "F.1: Scripting and Programming- Applications– C867, C++, #001459799, Brandon M Burky\n\n";
+    // F.2 & F.3
+    Roster *classRoster = new Roster;
+    // F.4 -- Extra 'cout << "\n"'s are to help make this easier to follow in output.
+    std::cout << "F.4:\n";
+    classRoster -> printAll();
+    std::cout << '\n';
+    classRoster -> printInvalidEmails();
+    std::cout << '\n';
+    for(int i = 0; i < classRoster -> classRosterVector.size(); i++){
+        classRoster -> printAverageDaysInCourse(classRoster -> classRosterVector[i].getStudentId());
     }
-    
-
-
+    std::cout << '\n';
+    classRoster -> printByDegreeProgram("Software");
+    std::cout << '\n';
+    classRoster -> remove("A3");
+    std::cout << '\n';
+    classRoster -> printAll();
+    std::cout << '\n';
+    classRoster -> remove("A3");
+    std::cout << '\n';
+    // F.5
+    std::cout << "F.5:\n";
+    delete classRoster;
+    std::cout << "\"classRoster\" object destructed.\n";
 }

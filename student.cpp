@@ -65,7 +65,7 @@ class Student{
             }
             std::cout << dp;
         }
-
+        
         // Constructor
         Student(std::string sId, std::string fn, std::string ln, std::string em, int a, int dc[3], DegreeProgram dp){
             setStudentId(sId);
