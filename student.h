@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 #include "degree.h"
 
@@ -31,24 +32,44 @@ class Student{
         int getAge(){return age; }
         std::string getDaysInCourse(){
             std::string daysString = "{";
-            for(int i = 0; i < 3; i++){
-                daysString.append(std::to_string(daysInCourse[i]));
-                daysString.append(", ");}
+            daysString.append(std::to_string(daysInCourse[0]));
+            for(int i = 1; i < 3; i++){
+                daysString.append(", ");
+                daysString.append(std::to_string(daysInCourse[i]));}
             daysString.append("}");
             return daysString;
         }
         DegreeProgram getDegreeProgram(){return degree;}
 
+        // Print statement. Not needed, but added to satisfy the PA
+        void printStudentId(){std::cout << studentId;}
+        void printFirstName(){std::cout << firstName;}
+        void printLastName(){std::cout << lastName;}
+        void printEmail(){std::cout << email;}
+        void printAge(){std::cout << age;}
+        void printDaysInCourse(){
+            std::string days = getDaysInCourse();
+            std::cout << days;}
+        void printDegreeProgram(){
+            const std::string enum_string[3] = {"Security", "Network", "Software"};
+            std::string dp;
+            if (getDegreeProgram() == SECURITY){
+                dp = enum_string[0];}
+            else if (getDegreeProgram() == NETWORK){
+                dp = enum_string[1];}
+            else if (getDegreeProgram() == SOFTWARE){
+                dp = enum_string[2];}
+            std::cout << dp;
+        }
+
         // Constructor
-        Student(std::string sId, std::string fn, std::string ln, std::string em, int a, int *dc[3], DegreeProgram dp){
+        Student(std::string sId, std::string fn, std::string ln, std::string em, int a, int dc[3], DegreeProgram dp){
             setStudentId(sId);
             setFirstName(fn);
             setLastName(ln);
             setEmail(em);
             setAge(a);
-            setDaysInCourse(*dc);
+            setDaysInCourse(dc);
             setDegreeProgram(dp);
         }
-
-        // Print statement
 };
