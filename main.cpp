@@ -24,7 +24,7 @@ int main(){
                 classRoster.printInvalidEmails();
                 break;
             case 3:
-                std::cout << "What degree type?";
+                std::cout << "What degree type?\n";
                 std::cin >> in;
                 classRoster.printByDegreeProgram(in);
                 break;
@@ -37,9 +37,9 @@ int main(){
                 std::cout << *&studentData[4] << "\n";
                 break;
             case 5:
-                std::cout << "What Student ID?";
+                std::cout << "What Student ID?\n";
                 std::cin >> in;
-                //classRoster.printAverageDaysInCourse(in);
+                classRoster.printAverageDaysInCourse(in);
                 break;
             case 0:
                 return 0;

@@ -93,14 +93,23 @@ class Roster{
             }
         }
 
-        /*
         void printAverageDaysInCourse(std::string studentID){
             int classSize = classRosterVector.size();
             int i = 0;
-            
+            int *rawDays;
+            float dayAve = 0.0;
+            if(studentID == classRosterVector[i].getStudentId() && i < classRosterVector.size()){
+                rawDays = classRosterVector[i].getDaysInCourse();
+                for(int j = 0; j < 3; j++){
+                    dayAve += rawDays[j];
+                }
+            }
+            else{
+                i++;
+            }
+            dayAve /= 3;
             std::cout << "Student " << studentID << " has an average of " << dayAve << " in class over three classes.";
         }
-        */
 
         void printInvalidEmails(){
             int classSize = classRosterVector.size();

@@ -30,17 +30,8 @@ class Student{
         std::string getFirstName(){return firstName;}
         std::string getLastName(){return lastName;}
         std::string getEmail(){return email;}
-        int getAge(){return age; }
-        std::string getDaysInCourse(){
-            std::string daysString = "{";
-            daysString.append(std::to_string(daysInCourse[0]));
-            for(int i = 1; i < 3; i++){
-                daysString.append(", ");
-                daysString.append(std::to_string(daysInCourse[i]));
-            }
-            daysString.append("}");
-            return daysString;
-        }
+        int getAge(){return age;}
+        int *getDaysInCourse(){return daysInCourse;}
         DegreeProgram getDegreeProgram(){return degree;}
 
         // Print statement. Not needed, but added to satisfy the PA
@@ -50,8 +41,14 @@ class Student{
         void printEmail(){std::cout << email;}
         void printAge(){std::cout << age;}
         void printDaysInCourse(){
-            std::string days = getDaysInCourse();
-            std::cout << days;
+            std::string daysString = "{";
+            daysString.append(std::to_string(daysInCourse[0]));
+            for(int i = 1; i < 3; i++){
+                daysString.append(", ");
+                daysString.append(std::to_string(daysInCourse[i]));
+            }
+            daysString.append("}");
+            std::cout << daysString;
         }
         // Changes Degree to correct format and prints
         void printDegreeProgram(){
