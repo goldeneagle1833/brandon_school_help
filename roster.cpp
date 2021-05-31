@@ -41,7 +41,6 @@ public:
     {
         const std::string enum_string[3] = {"Security", "Network", "Software"};
         std::string dp;
-        //comment for branch
         if (classRosterVector[i].getDegreeProgram() == SECURITY)
         {
             dp = enum_string[0];
@@ -69,6 +68,7 @@ public:
             DegreeProgram dt = convertToDegreeType(ss[8]);
             // Student(std::string sId, std::string fn, std::string ln, std::string em, int a, int *dc[3], DegreeProgram dp)
             Student studentObj(ss[0], ss[1], ss[2], ss[3], age, daysInClass, dt);
+
             classRosterVector.push_back(studentObj);
         }
     }
