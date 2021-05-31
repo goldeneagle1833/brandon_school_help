@@ -24,7 +24,6 @@ class Roster{
             std::istringstream streamString(tempRosterArray);
             while(std::getline(streamString, curWord, ',')){
                 ss[i] = curWord;
-                std::cout << ss[i] << '\n';
                 i++;
             }
             return *ss;
@@ -50,14 +49,23 @@ class Roster{
         void initStudentObjs(){
             populateClassRoasterArray();
             for(int i = 0; i < 5; i++){
-                std::string ss;
-                ss = createSubstring(*classRosterArray[i]);
-
-                int daysInClassTemp[3] = {ss[5], ss[6], ss[7]};
+                std::string ss[9];
+                ss[i] = createSubstring(*classRosterArray[i]);
+                std::cout << "\nss[0] is: " << ss[0] << "\t";
+                std::cout << "\nss[1] is: " <<  ss[1] << "\t";
+                std::cout << "\nss[2] is: " <<  ss[2] << "\t";
+                std::cout << "\nss[3] is: " <<  ss[3] << "\t";
+                std::cout << "\nss[4] is: " <<  ss[4] << "\t";
+                std::cout << "\nss[5] is: " <<  ss[5] << "\t";
+                std::cout << "\nss[6] is: " <<  ss[6] << "\t";
+                std::cout << "\nss[7] is: " <<  ss[7] << "\t";
+                std::cout << "\nss[8] is: " <<  ss[8] << "\n";
+                int age = 99;
+                int daysInClassTemp[3] = {1, 2, 3};
                 int *daysInClass[3] = {&daysInClassTemp[0], &daysInClassTemp[1], &daysInClassTemp[2]};
-                DegreeProgram dt = convertToDegreeType(&ss[8]);
-
-                Student studentObj(&ss[0], &ss[1], &ss[2], &ss[3], ss[4], daysInClass, dt);
+                DegreeProgram dt = convertToDegreeType(ss[8]);
+                // Student(std::string sId, std::string fn, std::string ln, std::string em, int a, int *dc[3], DegreeProgram dp)
+                Student studentObj(ss[0], ss[1], ss[2], ss[3], age, daysInClass, dt);
                 classRosterVector.push_back(studentObj);}
         }
 
