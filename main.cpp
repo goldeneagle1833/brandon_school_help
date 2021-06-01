@@ -17,7 +17,7 @@ int main(){
         classRoster -> printAverageDaysInCourse(classRoster -> classRosterVector[i].getStudentId());
     }
     std::cout << '\n';
-    classRoster -> printByDegreeProgram("Software");
+    classRoster -> printByDegreeProgram(SOFTWARE);
     std::cout << '\n';
     classRoster -> remove("A3");
     std::cout << '\n';

@@ -142,8 +142,23 @@ class Roster{
                 }
             }
         }
+        // If string input is provided:
         void printByDegreeProgram(std::string degreeProgramInput){
             DegreeProgram degreeProgram = convertToDegreeType(degreeProgramInput);
+            int classSize = classRosterVector.size();
+            int i = 0;
+            while (i < classSize){
+                if (classRosterVector[i].getDegreeProgram() == degreeProgram){
+                    printSingleStudent(i);
+                    i++;
+                }
+                else{
+                    i++;
+                }
+            }
+        }
+        // If DegreeProgram input is provided:
+        void printByDegreeProgram(DegreeProgram degreeProgram){
             int classSize = classRosterVector.size();
             int i = 0;
             while (i < classSize){
